@@ -79,7 +79,7 @@ Foram testados:
 
 ## 4. Procedimento para saber qual deles é o melhor
 1. Divisão das variáveis em dependente (y) e independentes (X);
-2. Cross-Validation com todo o *DataFrame*, calculando também o intervalo de confiança para os resultados (métricas) dos modelos;
+2. Cross-Validation com todo o *DataFrame*, calculando também o intervalo de confiança para os resultados (métricas) dos modelos (o intervalo foi calculado pois existiam poucas linhas, podendo haver um viés aleatório na divisão de treino e teste);
 3. Avaliação de todas as métricas e seleção do melhor modelo. Abaixo vão os resultados:
 
 ![accuracy](/img/accuracy.png)
@@ -94,11 +94,22 @@ Foram testados:
 
 Após algumas análises, a ***Random Forest Classifier*** foi a escolhida, por ela ser a primeira em quase todas as métricas! Na verdade, o que realmente pesou foi o melhor *Recall*, pois prever que a pessoa é falso negativo, ou seja, não ser admitida para UTI mas que na verdade era para ser, pode literalmente matar uma pessoa! Então optei também pelo modelo com a melhor sensibilidade.
 
-## 5. Resultados de Negócio
-1. "O faturamento esperado pela empresa é igual a: 3.004.400.679,40, se considerarmos 1/4 das transações em 1 mês. Entretanto, se fossemos deduzir o quanto se aumenta, para 100% das transações mensais, temos a possibilidade de encontrar 3.76x esse valor!"
+## 5. *Tuning* de Hiperparâmetros
+Acabei testando no `GridSearchCV()` (função do `sklearn`) valores diferentes para `max_features` e `n_estimators`. O resultado foi:
 
-2. "O prejuízo esperado pela empresa é igual a: 45.659.154,44, se considerarmos 1/4 das transações em 1 mês. Entretanto, se fossemos deduzir o quanto se aumenta, para 100% das transações mensais, temos a possibilidade de encontrar 21.19x esse valor!"
+- `max_features`: 7;
+- `n_estimators`: 2000.
 
-3. "O lucro esperado pela empresa é igual a: 2.958.741.524,96, se considerarmos 1/4 das transações em 1 mês. Entretanto, se fossemos deduzir o quanto se aumenta, para 100% das transações mensais, temos a possibilidade de encontrar 3.5x esse valor!"
+Observação: se rodarmos o notebook denovo, **poderemos encontrar outros valores para esses hiperparâmetros, por conta da baixa quantidade de pacientes e o fator aleatório**!
 
-**Observação:** não sabímos a unidade monetária!
+## 6. Visualizações extras
+
+- *Coutor plots* (2D e 3D):
+
+![countor-plot-2d](/img/countor-plot-2d.png)
+
+![countor-plot-3d](/img/countor-plot-3d.png)
+
+- *Feature Importances*:
+
+![feature-importances](/img/feature-importances.png)
