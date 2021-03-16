@@ -92,7 +92,7 @@ Foram testados:
 
 ![roc-auc](/img/roc-auc.png)
 
-Após algumas análises, a ***Random Forest Classifier*** foi a escolhida, por ela ser a primeira em quase todas as métricas! Na verdade, o que realmente pesou foi o melhor *Recall*, pois prever que a pessoa é falso negativo, ou seja, não ser admitida para UTI mas que na verdade era para ser, pode literalmente matar uma pessoa! Então optei também pelo modelo com a melhor sensibilidade.
+Após algumas análises, a ***Random Forest Classifier*** foi a escolhida, por ela ser a primeira em quase todas as métricas! Na verdade, o que realmente pesou foi o melhor *Recall*, pois quanto menos falsos negativos tiver, ou seja, a pessoa não ser admitida para UTI mas que na verdade era para ser, é melhor. Um *Recall* ruim pode literalmente matar pessoas... Então optei também pelo modelo com a melhor sensibilidade.
 
 ## 5. *Tuning* de Hiperparâmetros
 Acabei testando no `GridSearchCV()` (função do `sklearn`) valores diferentes para `max_features` e `n_estimators`. O resultado foi:
