@@ -55,11 +55,12 @@ Sendo assim, pensando na **necessidade de ser ágil** para a ida e vinda de paci
 
 ## 2. Análise Exploratória dos Dados
 Utilizei gráficos de barras, *violinplots*, *boxplots*, matriz de correlação (mapa de calor) e gráficos de regressão. Vão alguns exemplos de visualizações abaixo:
-![](https://github.com/Emersonmiady/rg-bank/blob/main/img/montant.png?raw=true)
-![](https://github.com/Emersonmiady/rg-bank/blob/main/img/fraud_hour.png?raw=true)
-![](https://github.com/Emersonmiady/rg-bank/blob/main/img/fraud_day.png?raw=true)
-
-
+![](/img/age_percentil.png)
+![](/img/icu_age_above.png)
+![](/img/gender.png)
+![](/img/blood_vital_signs.png)
+![](/img/correlation_map.png)
+![](/img/regression_plots_high_corr.png)
 
 ## 3. Preparando para o ML
 Transformei as variáveis categóricas relevantes em *dummies*, depois dividi em 0.2 de teste e apliquei o `StandardScaler()` para a padronização dos dados, já que ultilizaríamos um modelo de Regressão Logística para a comparação de modelos.
