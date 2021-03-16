@@ -6,7 +6,7 @@ Como desafio, foi requisitado um **modelo que prevê a admissão de pacientes co
 
 - Análise completa em "**previsao_leitos_uti_brasil.ipynb**".
 
-Observação: para ver alguns gráficos com o `plotly`, clique em "Open in Colab", no começo do *notebook*. O Github, infelizmente, não tem uma compatibilidade com a biblioteca.
+Observação: para ver alguns gráficos com o `plotly`, clique em "Open in Colab", no começo do *notebook*. O Github, infelizmente, não tem compatibilidade com a biblioteca.
 
 # Contexto
 ---
