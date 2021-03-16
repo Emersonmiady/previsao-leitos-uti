@@ -29,7 +29,7 @@ Mas o que devemos fazer se a quantidade de leitos ficar estável e não existire
 
 Sendo assim, pensando na **necessidade de ser ágil** para a ida e vinda de pacientes, o Hospital Sírio-Libanês está tentando buscar uma solução para o caso, isto é, **prever se a pessoa precisará de leito antecipadamente**. E é disso que se trata este projeto.
 
-**Base de dados:** [Dataset do Hospital Sírio-Libanês (*Kaggle*)](https://www.kaggle.com/S%C3%ADrio-Libanes/covid19).
+**Base de dados:** [Dataset do Hospital Sírio-Libanês (*Kaggle*)](https://www.kaggle.com/S%C3%ADrio-Libanes/covid19), com todas as features já *normalizadas*.
 
 # Ferramentas utilizadas
 ---
@@ -39,44 +39,60 @@ Sendo assim, pensando na **necessidade de ser ágil** para a ida e vinda de paci
 
 # Descrição breve das etapas
 ---
-## 1. Pré-processamento
+## 1. Pré-processamento dos dados
 
 ### 1.1. Primeiro momento
 - Preenchimento de valores faltantes com métodos "*backfill*" e "*fowardfill*" dado um mesmo paciente;
 - Remoção de pacientes que já são declarados como `ICU` = 1 na primeira janela (`0-2`);
 - Remoção dos pacientes que não foram coletadas nenhuma informação de certa variável em nenhuma das janelas;
-- Seleção de uma única janela de tempo (`0-2`).
+- Seleção de uma única janela de tempo (`0-2`);
+- Criação do *DataFrame* utilizado pelo Sírio-Libanês.
 
 ### 1.2. Segundo momento
 - Remoção das variáveis que possuem `MIN`, `MAX` e `MEDIAN` no final.
 
 ### 1.3. Terceiro momento
-- Remoção das variáveis altamente correlacionadas com alguma outra.
+- Remoção das variáveis altamente correlacionadas com alguma outra;
+- Junção do meu *DataFrame* com o do hospital.
 
 ## 2. Análise Exploratória dos Dados
 Utilizei gráficos de barras, *violinplots*, *boxplots*, matriz de correlação (mapa de calor) e gráficos de regressão. Vão alguns exemplos de visualizações abaixo:
-![](/img/age_percentil.png)
-![](/img/icu_age_above.png)
-![](/img/gender.png)
-![](/img/blood_vital_signs.png)
-![](/img/correlation_map.png)
-![](/img/regression_plots_high_corr.png)
 
-## 3. Preparando para o ML
-Transformei as variáveis categóricas relevantes em *dummies*, depois dividi em 0.2 de teste e apliquei o `StandardScaler()` para a padronização dos dados, já que ultilizaríamos um modelo de Regressão Logística para a comparação de modelos.
+![age_percentil](/img/age_percentil.png)
 
-## 4. Machine Learning: modelos testados
+![icu_age_above](/img/icu_age_above.png)
+
+![gender](/img/gender.png)
+
+![blood_vital_signs](/img/blood_vital_signs.png)
+
+![correlation_map](/img/correlation_map.png)
+
+![regression_plots_high_corr](/img/regression_plots_high_corr.png)
+
+## 3. Machine Learning: modelos testados
 Foram testados:
 - Naive-Bayes;
 - Regressão Logística;
 - Árvore de Decisão;
 - Random Forest.
 
-## 4. Resultados das métricas
+## 4. Procedimento para saber qual deles é o melhor
+1. Divisão das variáveis em dependente (y) e independentes (X);
+2. Cross-Validation com todo o *DataFrame*, calculando também o intervalo de confiança para os resultados (métricas) dos modelos;
+3. Avaliação de todas as métricas e seleção do melhor modelo. Abaixo vão os resultados:
 
-![](https://github.com/Emersonmiady/rg-bank/blob/main/img/models_description.png)
+![accuracy](/img/accuracy.png)
 
-O melhor modelo foi o que teve melhor Recall, pelo menos quando utilizamos as regras de negócio. Ou seja, foi a Árvore de Decisão!
+![precision](/img/precision.png)
+
+![recall](/img/recall.png)
+
+![f1-score](/img/f1-score.png)
+
+![roc-auc](/img/roc-auc.png)
+
+Após algumas análises, a ***Random Forest Classifier*** foi a escolhida, por ela ser a primeira em quase todas as métricas! Na verdade, o que realmente pesou foi o melhor *Recall*, pois prever que a pessoa é falso negativo, ou seja, não ser admitida para UTI mas que na verdade era para ser, pode literalmente matar uma pessoa! Então optei também pelo modelo com a melhor sensibilidade.
 
 ## 5. Resultados de Negócio
 1. "O faturamento esperado pela empresa é igual a: 3.004.400.679,40, se considerarmos 1/4 das transações em 1 mês. Entretanto, se fossemos deduzir o quanto se aumenta, para 100% das transações mensais, temos a possibilidade de encontrar 3.76x esse valor!"
