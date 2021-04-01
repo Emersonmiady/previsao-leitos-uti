@@ -1,12 +1,14 @@
 # COVID-19: evitando um possível colapso nos sistemas de saúde
 ---
-Este projeto foi desenvolvido durante o **Bootcamp de *Data Science* Aplicada (Alura)**, no último módulo. Neste, vimos alguns tópicos como modelos de ***Machine Learning***, ***Cross-Validation***, ***Efeitos da Aleatoriedade ao dividir o DataFrame em treino e teste***, ***Tuning de Hiperparâmetros*** ***etc***. As aulas foram feitas em cima de um Dataset do *Kaggle*, disponibilizado pelo **Hospital Sírio-Libanês**.
+Este projeto foi desenvolvido durante o **Bootcamp de *Data Science* Aplicada (Alura)**, no último módulo. Neste, vimos alguns tópicos como modelos de ***Machine Learning***, ***Cross-Validation***, ***Efeitos da Aleatoriedade ao dividir o DataFrame em treino e teste***, ***Tuning de Hiperparâmetros*** ***etc***. As aulas foram feitas em cima de um *Dataset* do *Kaggle*, disponibilizado pelo **Hospital Sírio-Libanês**.
 
 Como desafio, foi requisitado um **modelo que prevê a admissão de pacientes com COVID-19 para leitos de UTI**, ou seja, se a pessoa está em um risco maior por conta do novo coronavírus, além de realizar uma ***EDA*** dos dados.
 
 - Análise completa em "**previsao_leitos_uti_brasil.ipynb**".
 
-Observação: para ver alguns gráficos com o `plotly`, clique em "Open in Colab", no começo do *notebook*. O Github, infelizmente, não tem compatibilidade com a biblioteca.
+Observações: 
+- Para ver alguns gráficos com o `plotly`, clique em "Open in Colab", no começo do *notebook*. O Github, infelizmente, não tem compatibilidade com a biblioteca;
+- **Se não conseguir abrir o arquivo previsao_leitos_uti_brasil.ipynb no Github, clique [neste link](https://colab.research.google.com/drive/1eHH8oDotwUbIRp3WBx0eDkuCWV2QIzib?usp=sharing) para vê-lo no *Google Colaboratory***!
 
 # Contexto
 ---
