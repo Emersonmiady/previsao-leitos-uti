@@ -4,7 +4,7 @@ Este projeto foi desenvolvido durante o **Bootcamp de *Data Science* Aplicada (A
 
 Como desafio, foi requisitado um **modelo que prevê a admissão de pacientes com COVID-19 para leitos de UTI**, ou seja, se a pessoa está em um risco maior por conta do novo coronavírus, além de realizar uma ***EDA*** dos dados.
 
-- Análise completa em "**previsao_leitos_uti_brasil.ipynb**".
+- Análise completa em "**previsao_leitos_uti_sirio_libanes.ipynb**".
 
 Observações: 
 - Para ver alguns gráficos com o `plotly`, clique em "Open in Colab", no começo do *notebook*. O Github, infelizmente, não tem compatibilidade com a biblioteca;
