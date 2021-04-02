@@ -8,7 +8,7 @@ Como desafio, foi requisitado um **modelo que prevê a admissão de pacientes co
 
 Observações: 
 - Para ver alguns gráficos com o `plotly`, clique em "Open in Colab", no começo do *notebook*. O Github, infelizmente, não tem compatibilidade com a biblioteca;
-- **Se não conseguir abrir o arquivo previsao_leitos_uti_brasil.ipynb no Github, clique [neste link](https://colab.research.google.com/drive/1eHH8oDotwUbIRp3WBx0eDkuCWV2QIzib?usp=sharing) para vê-lo no *Google Colaboratory***!
+- **Se não conseguir abrir o arquivo previsao_leitos_uti_sirio_libanes.ipynb no Github, clique [neste link](https://colab.research.google.com/drive/1eHH8oDotwUbIRp3WBx0eDkuCWV2QIzib?usp=sharing) para vê-lo no *Google Colaboratory***!
 
 # Contexto
 ---
